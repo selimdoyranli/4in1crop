@@ -1,15 +1,15 @@
-@mixin white-gradient-to-top($color-intensity) {
-  background: linear-gradient(180deg, #fff $color-intensity, rgba(#fff, 0) 100%);
+@mixin transparent-gradient-to-top($color, $color-intensity) {
+  background: linear-gradient(to top, $color, $color-intensity, transparent);
 }
 
-@mixin white-gradient-to-bottom($color-intensity) {
-  background: linear-gradient(0deg, #fff $color-intensity, rgba(#fff, 0) 100%);
+@mixin transparent-gradient-to-bottom($color, $color-intensity) {
+  background: linear-gradient(to bottom, $color, $color-intensity, transparent);
 }
 
-@mixin white-gradient-to-right($color-intensity) {
-  background: linear-gradient(-90deg, #fff $color-intensity, rgba(#fff, 0) 100%);
+@mixin transparent-gradient-to-right($color, $color-intensity) {
+  background: linear-gradient(to right, $color, $color-intensity, transparent);
 }
 
-@mixin white-gradient-to-left($color-intensity) {
-  background: linear-gradient(90deg, #fff $color-intensity, rgba(#fff, 0) 100%);
+@mixin transparent-gradient-to-left($color, $color-intensity) {
+  background: linear-gradient(to left, $color, $color-intensity, transparent);
 }

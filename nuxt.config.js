@@ -3,7 +3,7 @@ module.exports = {
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  target: 'static',
 
   /*
    ** Headers of the page
@@ -32,13 +32,26 @@ module.exports = {
    */
   styleResources: {
     scss: [
+      /*
+       * Vendor
+       */
+      // > Bootstrap Vendor
+      'bootstrap/scss/_functions.scss',
+      'bootstrap/scss/_variables.scss',
+      'bootstrap/scss/_mixins.scss',
+      /*
+       * Overrides (This overrides not includes actual styles. | variables, mixins etc.)
+       */
+      // > Bootstrap Overrides
+      '~/assets/style/scss/overrides/bootstrap/_grid.override.scss',
+      '~/assets/style/scss/overrides/bootstrap/_spacing.override.scss',
       // Plugins
-      '~/assets/style/scss/plugins/_browserhack.scss', // Doc: https://github.com/selimdoyranli/browser-hack-sass-mixins
-      '~/assets/style/scss/plugins/_breakpoint.scss',
-      '~/assets/style/scss/plugins/_mq.scss', // Doc: https://github.com/sass-mq/sass-mq
+      // --
       // Functions
       '~/assets/style/scss/functions/_center.scss',
       '~/assets/style/scss/functions/_triangle.scss',
+      // Variables
+      //--
       // Mixins
       '~/assets/style/scss/mixins/_font.scss',
       '~/assets/style/scss/mixins/_gradient.scss'
@@ -51,19 +64,46 @@ module.exports = {
   css: [
     // Actual styles entry point (as import management)
     '~/assets/style/scss/app.scss'
+    // 3rds
+    // ---
   ],
 
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    // https://vuesax.com
+    {
+      src: '@/plugins/vuesax.js',
+      ssr: true
+    },
+    // https://docs.iconify.design/icon-components/vue
+    {
+      src: '~/plugins/iconify.js',
+      ssr: false
+    }
+  ],
 
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: [{ path: '~/components', pathPrefix: false }],
+  components: false,
+
+  /*
+   ** Router configuration
+   ** https://nuxtjs.org/docs/configuration-glossary/configuration-router
+   */
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'index',
+        path: '/',
+        component: resolve(__dirname, 'pages/Home/index.vue')
+      })
+    }
+  },
 
   /*
    ** Nuxt.js dev-modules

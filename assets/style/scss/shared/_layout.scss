@@ -1,9 +1,17 @@
 .layout {
+  $layout: '.layout';
+
   position: relative;
 
-  main.router-view-wrapper {
-    min-height: 100vh;
-    padding-top: calc(var(--header-height) + 20px);
-    overflow: hidden;
+  &__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(100vh - var(--header-height) - 0rem);
+    padding-top: calc(var(--header-height) + 0rem);
+  }
+
+  .router-view {
+    position: relative;
   }
 }

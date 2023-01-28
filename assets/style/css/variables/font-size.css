@@ -1,0 +1,48 @@
+:root {
+  /* Heading */
+
+  /* h1 */
+  --font-size-h1: 42px;
+
+  /* h2 */
+  --font-size-h2: 32px;
+
+  /* h3 */
+  --font-size-h3: 28px;
+
+  /* h4 */
+  --font-size-h4: 20px;
+
+  /* h5 */
+  --font-size-h5: 16px;
+
+  /* h6 */
+  --font-size-h6: 14px;
+
+  /* Text */
+  --font-size-text-01: 56px;
+  --font-size-text-02: 54px;
+  --font-size-text-03: 52px;
+  --font-size-text-04: 50px;
+  --font-size-text-05: 48px;
+  --font-size-text-06: 46px;
+  --font-size-text-07: 44px;
+  --font-size-text-08: 42px;
+  --font-size-text-09: 40px;
+  --font-size-text-10: 38px;
+  --font-size-text-11: 36px;
+  --font-size-text-12: 34px;
+  --font-size-text-13: 32px;
+  --font-size-text-14: 30px;
+  --font-size-text-15: 28px;
+  --font-size-text-16: 26px;
+  --font-size-text-17: 24px;
+  --font-size-text-18: 22px;
+  --font-size-text-19: 20px;
+  --font-size-text-20: 18px;
+  --font-size-text-21: 16px;
+  --font-size-text-22: 14px;
+  --font-size-text-23: 12px;
+  --font-size-text-24: 10px;
+  --font-size-text-25: 8px;
+}

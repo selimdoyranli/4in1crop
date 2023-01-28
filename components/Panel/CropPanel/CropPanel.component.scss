@@ -1,0 +1,17 @@
+.crop-panel {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('~assets/img/elements/grid_bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.075;
+    content: '';
+  }
+}
