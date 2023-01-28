@@ -1,3 +1,11 @@
 .app-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--header-height);
+  padding: 0 calc(#{$spacer} * 4);
+  background-color: var(--color-ui-02);
 }

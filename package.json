@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "4in1crop.com",
   "private": false,
-  "keywords": ["image cropper"],
+  "keywords": [
+    "image cropper"
+  ],
   "author": "selimdoyranli",
   "contributors": [
     "Selim Doyranlı <selim@radkod.com> (https://selimdoyranli.com)"
@@ -42,11 +44,13 @@
     "bootstrap": "5.2.3",
     "cross-env": "^5.2.0",
     "express": "^4.17.1",
-    "nuxt": "2.15.8"
+    "nuxt": "2.15.8",
+    "vuesax": "^4.0.1-alpha.25"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@iconify/vue2": "^2.1.0",
     "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",

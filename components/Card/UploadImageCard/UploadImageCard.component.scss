@@ -1,0 +1,41 @@
+.upload-image-card {
+  --height: 320px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--height);
+  text-align: center;
+  background-color: var(--color-ui-02);
+  border-radius: var(--border-radius-01);
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacer * 4;
+
+    &__icon {
+      margin-right: calc(#{$spacer} * 4);
+    }
+
+    &__title {
+      margin: 0;
+    }
+  }
+
+  &__description {
+    margin-bottom: $spacer * 4;
+    line-height: var(--font-size-text-18);
+  }
+
+  &-action {
+    margin-top: $spacer * 4;
+
+    &__button {
+      padding: 0 $spacer * 2;
+    }
+  }
+}

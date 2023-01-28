@@ -33,7 +33,7 @@ TEAM WEBSITE : www.RadKod.com
 
 html {
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   font-size: 100%;
 }
 
@@ -41,6 +41,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
+  color: var(--color-text-02);
   background-color: var(--color-ui-01);
-  @include roboto-regular;
+  @include rubik-regular;
 }

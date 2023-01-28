@@ -1,12 +1,16 @@
 <template lang="pug">
 .page.home-page
-  h1 Home Page
+  CropEditor
 </template>
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
+import { CropEditor } from '@/components/Editor'
 
 export default defineComponent({
+  components: {
+    CropEditor
+  },
   layout: 'Default/Default.layout',
   setup() {}
 })

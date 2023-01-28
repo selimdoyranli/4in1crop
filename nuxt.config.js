@@ -72,7 +72,18 @@ module.exports = {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    // https://vuesax.com
+    {
+      src: '@/plugins/vuesax.js',
+      ssr: true
+    },
+    // https://docs.iconify.design/icon-components/vue
+    {
+      src: '~/plugins/iconify.js',
+      ssr: false
+    }
+  ],
 
   /*
    ** Auto import components

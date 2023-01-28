@@ -1,0 +1,27 @@
+.crop-editor {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - var(--header-height));
+
+  &__panel {
+    z-index: 1;
+    border-bottom: 1px solid var(--color-border-01);
+    border-left: 1px solid var(--color-border-01);
+
+    &:nth-child(n + 3) {
+      border-bottom: 0;
+    }
+
+    &:nth-child(odd) {
+      border-left: 0;
+    }
+  }
+
+  .upload-image-card {
+    @include center(true, true);
+
+    z-index: 2;
+  }
+}
