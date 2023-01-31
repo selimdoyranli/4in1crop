@@ -2,21 +2,20 @@
 .upload-image-card(ref="rootRef")
   .upload-image-card-head
     AppIcon.upload-image-card-head__icon(name="heroicons-solid:photo" :width="32" :height="32")
-    h1.upload-image-card-head__title KIRPMAYA BAŞLA
+    h1.upload-image-card-head__title {{ $t('uploader.title') }}
 
-  p.upload-image-card__description Kırpmak istediğin bir fotoğrafı seç, <br>
-    | 16:9, 9:16, 1:1 ve free oranlar için tek ekranda hızlıca kırp ve indir.
+  p.upload-image-card__description(v-html="$t('uploader.description')")
 
   .upload-image-card-action
     vs-button.upload-image-card-action__button(
       size="xl"
       primary
-      flat
       active
+      flat
       :loading="card.isBusy"
       @click.native="handleClickUploadButton"
     )
-      | Fotoğraf Seç
+      | {{ $t('uploader.choosePhoto') }}
 
   // File Input
   input#imageFile(ref="imageFileRef" type="file" v-show="false" @change="handleChangeFile")

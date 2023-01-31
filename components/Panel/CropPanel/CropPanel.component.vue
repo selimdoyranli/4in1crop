@@ -7,20 +7,20 @@
     DropdownMenu.crop-panel-aspect-ratio-select-dropdown(v-if="type === 'free'" withDropdownCloser dropup :overlay="false")
       template(#trigger)
         button
-          span Choose custom ratio
-          AppIcon(name="bi:caret-up-fill" :width="12" :height="12")
+          span {{ $t('editor.chooseCustomAspectRatio') }}
+          AppIcon(name="prime:caret-up" :width="12" :height="12")
       template(#body)
         AspectRatioSelectMenu(dropdown-closer @onSelect="handleOnSelectFreeFormRatio")
 
     span.crop-panel-footer__label
       template(v-if="type === 'free'")
-        span Freeform &nbsp;
+        span {{ $t('editor.freeform') }} &nbsp;
         span(v-if="selectedFreeFormRatio && selectedFreeFormRatio.key !== 'free'") ({{ selectedFreeFormRatio.title }})
       template(v-else) {{ aspectRatio }}
 
     template(v-if="panel.cropper")
-      span.crop-panel-footer__label Original: {{ panel.cropper.image.width }}x{{ panel.cropper.image.height }}
-      span.crop-panel-footer__label Cropped: {{ panel.cropper.coordinates.width }}x{{ panel.cropper.coordinates.height }}
+      span.crop-panel-footer__label {{ $t('editor.original') }}: {{ panel.cropper.image.width }}x{{ panel.cropper.image.height }}
+      span.crop-panel-footer__label {{ $t('editor.cropped') }}: {{ panel.cropper.coordinates.width }}x{{ panel.cropper.coordinates.height }}
 </template>
 
 <script>

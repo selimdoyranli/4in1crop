@@ -10,5 +10,38 @@
   height: var(--header-height);
   padding: 0 calc(#{$spacer} * 4);
   background-color: var(--color-ui-02);
-  border-bottom: 1px solid var(--color-border-01);
+  border-bottom: 1px solid var(--color-border-02);
+
+  &__actions {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .language-dropdown-menu {
+    $v-dropdown-menu: '.v-dropdown-menu';
+
+    #{$v-dropdown-menu} {
+      &__container {
+        top: var(--header-height);
+        background-color: var(--color-ui-03);
+        border: 1px solid var(--color-border-01);
+        border-radius: var(--border-radius-01);
+      }
+
+      &__trigger {
+        height: auto;
+      }
+    }
+
+    &-item {
+      padding: calc(#{$spacer} * 3) calc(#{$spacer} * 4);
+      list-style: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-hover-01);
+      }
+    }
+  }
 }

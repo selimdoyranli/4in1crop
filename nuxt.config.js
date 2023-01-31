@@ -133,7 +133,36 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    // https://i18n.nuxtjs.org
+    [
+      '@nuxtjs/i18n',
+      {
+        lazy: true,
+        locales: [
+          {
+            name: 'English',
+            title: 'English',
+            code: 'en',
+            iso: 'en-US',
+            file: 'en.js'
+          },
+          {
+            name: 'Turkish',
+            title: 'Türkçe',
+            code: 'tr',
+            iso: 'tr-TR',
+            file: 'tr.js'
+          }
+        ],
+        langDir: 'locales/',
+        defaultLocale: 'tr',
+        strategy: 'no_prefix',
+        detectBrowserLanguage: false,
+        parsePages: false
+      }
+    ]
+  ],
 
   /*
    ** Build configuration

@@ -21,13 +21,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 1px solid var(--color-border-02);
-    border-radius: var(--border-radius-01);
+    border: 1px solid var(--color-border-03);
+    border-radius: calc(var(--border-radius-01) / 2);
     cursor: pointer;
     aspect-ratio: 1/1;
 
     &:hover {
-      background-color: var(--color-ui-02);
+      background-color: var(--color-hover-01);
     }
 
     &--selected {
