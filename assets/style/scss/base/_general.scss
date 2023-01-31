@@ -21,6 +21,10 @@ TEAM WEBSITE : www.RadKod.com
 
 */
 
+* {
+  box-sizing: border-box;
+}
+
 ::-moz-selection {
   color: #fff;
   background: #444;

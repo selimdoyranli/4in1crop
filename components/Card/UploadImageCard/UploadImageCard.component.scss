@@ -28,7 +28,8 @@
 
   &__description {
     margin-bottom: $spacer * 4;
-    line-height: var(--font-size-text-18);
+    font-size: var(--font-size-text-19);
+    line-height: var(--font-size-text-13);
   }
 
   &-action {

@@ -2,10 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: var(--z-index-header);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: var(--header-height);
   padding: 0 calc(#{$spacer} * 4);
   background-color: var(--color-ui-02);
+  border-bottom: 1px solid var(--color-border-01);
 }
