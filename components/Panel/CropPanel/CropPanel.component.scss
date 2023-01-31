@@ -1,17 +1,118 @@
 .crop-panel {
+  --footer-height: 32px;
+
   position: relative;
+  opacity: 0.8;
+  filter: grayscale(20%);
+  transition: 0.2s linear opacity;
+
+  @mixin grid-background-image {
+    background-image: url('~assets/img/elements/grid_bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 126% 126%;
+  }
 
   &::before {
+    @include grid-background-image();
+
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('~assets/img/elements/grid_bg.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
     opacity: 0.075;
     content: '';
+  }
+
+  &:hover {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  &__cropper {
+    $vue-advanced-cropper: '.vue-advanced-cropper';
+
+    position: relative;
+    width: 100%;
+    height: calc(100% - var(--footer-height));
+
+    #{$vue-advanced-cropper} {
+      &__image-wrapper {
+        &::before {
+          @include grid-background-image();
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.8;
+          content: '';
+        }
+      }
+    }
+  }
+
+  &-footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--footer-height);
+    padding: 0 calc(#{$spacer} * 4);
+    font-size: var(--font-size-text-23);
+    line-height: var(--font-size-text-20);
+    border-top: 1px solid var(--color-border-01);
+
+    &__label {
+      margin-right: $spacer * 2;
+      user-select: none;
+
+      &::after {
+        margin-left: $spacer * 2;
+        content: '•';
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-aspect-ratio-select-dropdown {
+    $v-dropdown-menu: '.v-dropdown-menu';
+
+    margin-right: $spacer * 4;
+
+    #{$v-dropdown-menu} {
+      &__trigger {
+        button {
+          display: inline-flex;
+          align-items: center;
+          padding: $spacer calc(#{$spacer} * 2);
+          color: var(--color-text-02);
+          font-size: var(--font-size-text-23);
+          background-color: var(--color-ui-03);
+          border: 0;
+          border-radius: var(--border-radius-01);
+
+          .app-icon {
+            margin-left: $spacer;
+          }
+        }
+      }
+
+      &__container {
+        min-width: 264px;
+        margin-bottom: $spacer;
+        padding: $spacer * 4;
+        background-color: var(--color-ui-03);
+        border: 0;
+        border-radius: calc(var(--border-radius-01) / 2);
+      }
+    }
   }
 }

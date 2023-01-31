@@ -1,14 +1,26 @@
 .crop-editor {
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
   height: calc(100vh - var(--header-height));
 
   &__panel {
     z-index: 1;
-    border-bottom: 1px solid var(--color-border-01);
+    border-bottom: 2px solid var(--color-border-01);
     border-left: 1px solid var(--color-border-01);
+
+    &--disabled {
+      $crop-panel: '.crop-panel';
+
+      pointer-events: none;
+
+      #{$crop-panel} {
+        &-footer {
+          opacity: 0.4;
+        }
+      }
+    }
 
     &:nth-child(n + 3) {
       border-bottom: 0;

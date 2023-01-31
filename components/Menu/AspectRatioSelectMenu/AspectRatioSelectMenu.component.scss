@@ -1,0 +1,37 @@
+.aspect-ratio-select-menu {
+  $aspect-ratio-select-menu__group: '.aspect-ratio-select-menu__group';
+
+  position: relative;
+  background-color: var(--color-ui-03);
+
+  #{$aspect-ratio-select-menu__group} {
+    position: relative;
+
+    &--standard {
+      display: grid;
+      grid-row-gap: $spacer * 2;
+      grid-column-gap: $spacer * 2;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid var(--color-border-02);
+    border-radius: var(--border-radius-01);
+    cursor: pointer;
+    aspect-ratio: 1/1;
+
+    &:hover {
+      background-color: var(--color-ui-02);
+    }
+
+    &--selected {
+      background-color: var(--color-ui-02);
+    }
+  }
+}
