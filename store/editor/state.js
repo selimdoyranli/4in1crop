@@ -1,4 +1,6 @@
 export default () => ({
+  isReady: false,
+  isBusy: false,
   original: {
     key: 'original',
     file: null

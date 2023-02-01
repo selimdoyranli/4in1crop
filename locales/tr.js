@@ -15,6 +15,7 @@ export default {
     loading: 'Yükleniyor',
     download: 'İndir',
     downloadAll: 'Tümünü indir',
+    readyForDownload: 'İndirmek için hazır',
     chooseLanguage: 'Dil seç'
   },
   uploader: {

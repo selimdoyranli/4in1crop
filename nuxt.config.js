@@ -161,6 +161,27 @@ module.exports = {
         detectBrowserLanguage: false,
         parsePages: false
       }
+    ],
+    // https://www.npmjs.com/package/nuxt-izitoast
+    [
+      'nuxt-izitoast',
+      {
+        class: 'app-toast app-toast--default',
+        close: false,
+        color: '#171717',
+        pauseOnHover: true,
+        layout: 1,
+        closeOnEscape: true,
+        theme: 'dark',
+        timeout: 3000,
+        progressBar: false,
+        transitionIn: 'fadeInUp',
+        transitionOut: 'fadeOut',
+        transitionInMobile: 'fadeInUp',
+        transitionOutMobile: 'fadeOutDown',
+        position: 'bottomCenter',
+        progressBarColor: '#222'
+      }
     ]
   ],
 

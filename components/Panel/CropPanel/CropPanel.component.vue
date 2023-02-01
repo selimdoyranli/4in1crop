@@ -25,6 +25,7 @@
 
 <script>
 import { defineComponent, useStore, ref, reactive, computed } from '@nuxtjs/composition-api'
+import useEditor from '@/hooks/useEditor'
 import { Cropper } from 'vue-advanced-cropper'
 import 'vue-advanced-cropper/dist/style.css'
 import 'vue-advanced-cropper/dist/theme.compact.css'
@@ -64,6 +65,7 @@ export default defineComponent({
   },
   setup(props) {
     const store = useStore()
+    const { sleep } = useEditor()
 
     const original = computed(() => store.getters['editor/original'])
 
@@ -94,9 +96,15 @@ export default defineComponent({
     const handleOnChangeCropper = ({ coordinates, image, visibleArea, canvas }) => {
       panel.cropper = { coordinates, image, visibleArea, canvas }
 
+      store.commit('editor/SET_IS_BUSY', true)
+
       canvas.toBlob(blob => {
         store.commit('editor/SET_CROPPED', { type: props.type, coordinates, file: blob })
       }, original.value.file.type)
+
+      sleep(1000).then(() => {
+        store.commit('editor/SET_IS_BUSY', false)
+      })
     }
 
     return {

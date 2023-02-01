@@ -15,7 +15,8 @@ export default {
   general: {
     loading: 'Loading',
     download: 'Download',
-    downloadAll: 'Download all'
+    downloadAll: 'Download all',
+    readyForDownload: 'Ready for download'
   },
   uploader: {
     title: 'START CROPPING',

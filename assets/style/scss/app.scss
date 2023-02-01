@@ -14,8 +14,7 @@
 /*
  * Vendor
  */
-
-@import '../css/vendor/animate.min.css';
+// --
 
 /*
  * Bootstrap Vendor (5.2.3)
@@ -40,3 +39,4 @@
 @import 'shared/page';
 @import 'shared/layout';
 @import 'shared/transition';
+@import 'shared/app-toast';

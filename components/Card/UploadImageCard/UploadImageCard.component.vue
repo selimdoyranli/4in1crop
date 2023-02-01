@@ -7,22 +7,16 @@
   p.upload-image-card__description(v-html="$t('uploader.description')")
 
   .upload-image-card-action
-    vs-button.upload-image-card-action__button(
-      size="xl"
-      primary
-      active
-      flat
-      :loading="card.isBusy"
-      @click.native="handleClickUploadButton"
-    )
+    vs-button.upload-image-card-action__button(size="xl" primary active flat :loading="isBusy" @click.native="handleClickUploadButton")
       | {{ $t('uploader.choosePhoto') }}
 
   // File Input
-  input#imageFile(ref="imageFileRef" type="file" v-show="false" @change="handleChangeFile")
+  input#imageFile(ref="imageFileRef" type="file" v-show="false" :accept="inputAcceptedFileExtensions" @change="handleChangeFile")
 </template>
 
 <script>
-import { defineComponent, useStore, ref, reactive } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, useStore, ref, computed } from '@nuxtjs/composition-api'
+import useEditor from '@/hooks/useEditor'
 import { AppIcon } from '@/components/Icon'
 
 export default defineComponent({
@@ -30,13 +24,20 @@ export default defineComponent({
     AppIcon
   },
   setup(_, { emit }) {
+    const context = useContext()
     const store = useStore()
+    const { sleep, acceptedFileExtensions, getFileExtension } = useEditor()
 
     const rootRef = ref(null)
     const imageFileRef = ref(null)
 
-    const card = reactive({
-      isBusy: false
+    const isBusy = computed(() => store.getters['editor/isBusy'])
+    const inputAcceptedFileExtensions = computed(() => {
+      return acceptedFileExtensions.value
+        .map(extension => {
+          return `image/${extension}`
+        })
+        .join(',')
     })
 
     const handleClickUploadButton = () => {
@@ -44,19 +45,34 @@ export default defineComponent({
     }
 
     const handleChangeFile = () => {
-      card.isBusy = true
+      store.commit('editor/SET_IS_BUSY', true)
 
-      setTimeout(() => {
-        emit('onChooseFile', { fileInput: imageFileRef.value })
-        card.isBusy = false
-        store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
-      }, 1000) // Create virtual delay effect
+      const fileExtension = getFileExtension(imageFileRef.value.files[0].name).toLowerCase()
+
+      if (acceptedFileExtensions.value.includes(fileExtension)) {
+        sleep(1000).then(() => {
+          store.commit('editor/SET_IS_READY', true)
+          store.commit('editor/SET_IS_BUSY', false)
+          store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
+
+          emit('onChooseFile', { fileInput: imageFileRef.value })
+        })
+      } else {
+        store.commit('editor/SET_IS_BUSY', false)
+        imageFileRef.value.value = null
+
+        context.$izitoast.error({
+          message: 'Unsupported file extension'
+        })
+      }
     }
 
     return {
       rootRef,
       imageFileRef,
-      card,
+      acceptedFileExtensions,
+      inputAcceptedFileExtensions,
+      isBusy,
       handleClickUploadButton,
       handleChangeFile
     }
