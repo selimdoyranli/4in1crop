@@ -14,8 +14,8 @@
 
     span.crop-panel-footer__label
       template(v-if="type === 'free'")
-        span {{ $t('editor.freeform') }} &nbsp;
-        span(v-if="selectedFreeFormRatio && selectedFreeFormRatio.key !== 'free'") ({{ selectedFreeFormRatio.title }})
+        span {{ $t('editor.freeform') }}
+        span(v-if="selectedFreeFormRatio && selectedFreeFormRatio.key !== 'free'") &nbsp; ({{ selectedFreeFormRatio.title }})
       template(v-else) {{ aspectRatio }}
 
     template(v-if="panel.cropper")
