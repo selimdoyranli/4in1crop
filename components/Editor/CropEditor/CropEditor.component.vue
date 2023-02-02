@@ -5,17 +5,17 @@
     :key="panel.type"
     ref="panelRef"
     :type="panel.type"
-    :src="editor.src"
+    :src="src"
     :class="[getPanelClass(panel), disabledPanelClass]"
     :aspect-ratio="panel.aspectRatio"
     :stencil-props="panel.stencilProps"
   )
 
-  UploadImageCard.col-12.col-lg-8.col-xl-6.col-xxl-5(v-if="editor.isVisibleUploader" @onChooseFile="handleOnChooseFile")
+  UploadImageCard.col-12.col-lg-8.col-xl-6.col-xxl-5(v-if="!isReady")
 </template>
 
 <script>
-import { defineComponent, ref, reactive, computed } from '@nuxtjs/composition-api'
+import { defineComponent, useStore, ref, reactive, computed } from '@nuxtjs/composition-api'
 import { CropPanel } from '@/components/Panel'
 import { UploadImageCard } from '@/components/Card'
 
@@ -25,12 +25,20 @@ export default defineComponent({
     UploadImageCard
   },
   setup() {
+    const store = useStore()
+
     const panelRef = ref(null)
     const panelClassName = 'crop-editor__panel'
 
+    const isReady = computed(() => store.getters['editor/isReady'])
+    const original = computed(() => store.getters['editor/original'])
+    const src = computed(() => {
+      if (original.value.file) {
+        return URL.createObjectURL(original.value.file)
+      }
+    })
+
     const editor = reactive({
-      isVisibleUploader: true,
-      src: null,
       panels: [
         {
           type: 'horizontal',
@@ -63,30 +71,21 @@ export default defineComponent({
       ]
     })
 
-    const handleOnChooseFile = ({ fileInput }) => {
-      if (fileInput.files && fileInput.files[0]) {
-        const src = URL.createObjectURL(fileInput.files[0])
-
-        editor.src = src
-      }
-
-      editor.isVisibleUploader = false
-    }
-
     const getPanelClass = panel => {
       return `${panelClassName}--${panel.type}`
     }
 
     const disabledPanelClass = computed(() => {
-      if (!editor.src) {
+      if (!src.value) {
         return `${panelClassName}--disabled`
       }
     })
 
     return {
-      editor,
       panelRef,
-      handleOnChooseFile,
+      isReady,
+      src,
+      editor,
       getPanelClass,
       disabledPanelClass
     }

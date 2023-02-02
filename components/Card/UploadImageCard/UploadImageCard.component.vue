@@ -54,8 +54,6 @@ export default defineComponent({
           store.commit('editor/SET_IS_READY', true)
           store.commit('editor/SET_IS_BUSY', false)
           store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
-
-          emit('onChooseFile', { fileInput: imageFileRef.value })
         })
       } else {
         store.commit('editor/SET_IS_BUSY', false)

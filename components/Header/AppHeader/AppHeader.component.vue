@@ -1,6 +1,7 @@
 <template lang="pug">
 header.header.app-header
   AppLogo
+
   .app-header__actions
     .app-header-action-item
       vs-tooltip(v-model="isVisibleReadyTooltip" bottom dark :class="[disabledReadyTooltipClass]")
@@ -22,6 +23,11 @@ header.header.app-header
             span.language-dropdown-menu-item__title English
           li.language-dropdown-menu-item(dropdown-closer @click="$i18n.setLocale('tr')")
             span.language-dropdown-menu-item__title Türkçe
+
+    .app-header-action-item
+      vs-button(transparent dark active href="https://github.com/selimdoyranli/4in1crop" blank)
+        AppIcon.me-1(name="charm:github" color="var(--color-text-02)")
+        span.color-text-02 Created by @selimdoyranli
 </template>
 
 <script>

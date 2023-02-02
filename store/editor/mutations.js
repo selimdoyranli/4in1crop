@@ -17,5 +17,25 @@ export default {
       coordinates,
       file
     }
+  },
+
+  CLEAR(state) {
+    state.isReady = false
+    state.isBusy = false
+
+    state.original = {
+      key: 'original',
+      file: null
+    }
+
+    const keys = ['horizontal', 'vertical', 'square', 'free']
+
+    keys.forEach(item => {
+      state.cropped[item] = {
+        key: item,
+        coordinates: {},
+        file: null
+      }
+    })
   }
 }
