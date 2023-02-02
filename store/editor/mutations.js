@@ -1,3 +1,5 @@
+import { cropTypeEnum } from '@/enums'
+
 export default {
   SET_IS_READY(state, isReady) {
     state.isReady = isReady
@@ -28,11 +30,11 @@ export default {
       file: null
     }
 
-    const keys = ['horizontal', 'vertical', 'square', 'free']
+    const cropTypes = [cropTypeEnum.HORIZONTAL, cropTypeEnum.VERTICAL, cropTypeEnum.SQUARE, cropTypeEnum.FREE]
 
-    keys.forEach(item => {
-      state.cropped[item] = {
-        key: item,
+    cropTypes.forEach(type => {
+      state.cropped[type] = {
+        key: type,
         coordinates: {},
         file: null
       }

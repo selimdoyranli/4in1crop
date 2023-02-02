@@ -16,6 +16,7 @@
 
 <script>
 import { defineComponent, useStore, ref, reactive, computed } from '@nuxtjs/composition-api'
+import { cropTypeEnum } from '@/enums'
 import { CropPanel } from '@/components/Panel'
 import { UploadImageCard } from '@/components/Card'
 
@@ -41,28 +42,28 @@ export default defineComponent({
     const editor = reactive({
       panels: [
         {
-          type: 'horizontal',
+          type: cropTypeEnum.HORIZONTAL,
           aspectRatio: '16:9',
           stencilProps: {
             aspectRatio: 16 / 9
           }
         },
         {
-          type: 'vertical',
+          type: cropTypeEnum.VERTICAL,
           aspectRatio: '9:16',
           stencilProps: {
             aspectRatio: 9 / 16
           }
         },
         {
-          type: 'square',
+          type: cropTypeEnum.SQUARE,
           aspectRatio: '1:1',
           stencilProps: {
             aspectRatio: 1 / 1
           }
         },
         {
-          type: 'free',
+          type: cropTypeEnum.FREE,
           aspectRatio: '4:3',
           stencilProps: {
             aspectRatio: 4 / 3

@@ -1,28 +1,30 @@
+import { cropTypeEnum } from '@/enums'
+
 export default () => ({
   isReady: false,
   isBusy: false,
   original: {
-    key: 'original',
+    key: cropTypeEnum.ORIGINAL,
     file: null
   },
   cropped: {
     horizontal: {
-      key: 'horizontal',
+      key: cropTypeEnum.HORIZONTAL,
       coordinates: {},
       file: null
     },
     vertical: {
-      key: 'vertical',
+      key: cropTypeEnum.VERTICAL,
       coordinates: {},
       file: null
     },
     square: {
-      key: 'square',
+      key: cropTypeEnum.SQUARE,
       coordinates: {},
       file: null
     },
     free: {
-      key: 'free',
+      key: cropTypeEnum.FREE,
       coordinates: {},
       file: null
     }

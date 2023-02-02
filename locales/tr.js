@@ -2,7 +2,7 @@ export default {
   app: {
     name: '4in1crop',
     domain: '4in1crop.com',
-    description: 'Quickly crop photo and download in one screen',
+    description: 'Birden fazla en boy oranı için tek ekranda hızlıca fotoğraf kırp',
     copyright: `4in1crop <a href="https://selimdoyranli.com" title="selimdoyranli" target="_blank">@selimdoyranli</a> tarafından`,
     publisher: 'selimdoyranli'
   },
@@ -20,7 +20,7 @@ export default {
   },
   uploader: {
     title: 'KIRPMAYA BAŞLA',
-    description: `Kırpmak istediğin bir fotoğrafı seç, <br> 16:9, 9:16, 1:1 ve free oranlar için tek ekranda hızlıca kırp ve indir.`,
+    description: `Birden fazla en boy oranı için tek ekranda hızlıca fotoğraf kırp. <br> 16:9, 9:16, 1:1 ve serbest oran desteklenir.`,
     choosePhoto: 'Fotoğraf Seç'
   },
   editor: {

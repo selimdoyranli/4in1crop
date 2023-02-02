@@ -8361,6 +8361,11 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
+nuxt-font-loader@1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/nuxt-font-loader/-/nuxt-font-loader-1.1.5.tgz#0b338abc7c3564c38be38989a59ce9d55ed0de5c"
+  integrity sha512-Hzdp3/FEehBoZPDIVK2az5bl+6lEABWhTi920wDdne7/kjCK3KSmC2fd0teLZPQYF7Lwsnsr8yQBAeOeOd7aDA==
+
 nuxt-izitoast@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/nuxt-izitoast/-/nuxt-izitoast-1.0.0.tgz#0764fba532ea874e257825be3c24f3a583481877"
