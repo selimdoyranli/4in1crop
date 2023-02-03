@@ -32,9 +32,7 @@ Quickly crop a photo for multiple ratios on the same screen 🖼️✂️
 <table>
 <tbody>
 <td align="center">
-<img width="2000" height="0"><br>
 <sub>Buy me a coffee - <a href="https://www.buymeacoffee.com/selimdoyranli">Sponsorship 💖</a></sub><br>
-<img width="2000" height="0">
 </td>
 </tbody>
 </table>
