@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
