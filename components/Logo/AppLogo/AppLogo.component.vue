@@ -1,6 +1,6 @@
 <template lang="pug">
 a.app-logo(:href="`https://${$t('app.domain')}`" :title="$t('app.name')")
-  img.app-logo__img(src="@/assets/img/core/logo/4in1crop-logo.png" alt="4in1crop")
+  img.app-logo__img(src="@/assets/img/core/logo/4in1crop-logo.png" alt="4in1crop" width="auto" height="28px")
   span.app-logo__title {{ $t('app.name') }}
 </template>
 
