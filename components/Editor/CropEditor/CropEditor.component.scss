@@ -11,13 +11,27 @@
     height: auto;
   }
 
+  // Touch area for scroll
+  &::after {
+    @include media-breakpoint-down(lg) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: var(--z-index-sticky);
+      width: 8px;
+      height: 100vh;
+      background-color: transparent;
+      content: '';
+    }
+  }
+
   &__panel {
     z-index: 1;
     border-bottom: 2px solid var(--color-border-01);
     border-left: 1px solid var(--color-border-01);
 
     @include media-breakpoint-down(lg) {
-      min-height: 50vh;
+      height: 50vh;
     }
 
     &--disabled {
