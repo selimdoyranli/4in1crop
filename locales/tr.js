@@ -30,6 +30,6 @@ export default {
     freeform: 'Serbest mod'
   },
   credits: {
-    description: 'Blog, Foto Blog, Haber siteleri ve <br> Sosyal Medya postları için kullanışlıdır.'
+    description: 'Blog, foto blog, haber siteleri ve sosyal medya postları için kullanışlıdır.'
   }
 }

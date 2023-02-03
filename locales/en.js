@@ -30,6 +30,6 @@ export default {
     freeform: 'Freeform'
   },
   credits: {
-    description: 'Useful for Blog, Photo Blog, News sites and <br> Social Media posts.'
+    description: 'Useful for blog, photo blog, news websites and social media posts.'
   }
 }
