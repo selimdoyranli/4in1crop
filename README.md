@@ -29,13 +29,7 @@ Quickly crop a photo for multiple ratios on the same screen 🖼️✂️
 </p>
 
 <div align="center">
-<table>
-<tbody>
-<td align="center">
 <sub>Buy me a coffee - <a href="https://www.buymeacoffee.com/selimdoyranli">Sponsorship 💖</a></sub><br>
-</td>
-</tbody>
-</table>
 </div>
 
 ## Features
