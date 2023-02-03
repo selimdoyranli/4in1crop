@@ -36,6 +36,7 @@ Quickly crop a photo for multiple ratios on the same screen 🖼️✂️
 - 🛠 ⚡️ Easy and fast.
 - 🧑‍💻 User friendly.
 - 🤹 🎨 Interactive.
+- 💸 🚫 Fully free. No ads, no premium bullshit.
 - 💾 🔒 Safe. Doesn't storage your photo.
 
 ## Getting Started
