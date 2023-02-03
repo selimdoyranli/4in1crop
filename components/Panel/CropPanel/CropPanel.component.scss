@@ -70,9 +70,12 @@
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
-      height: var(--footer-height);
       overflow-x: auto;
       white-space: nowrap;
+
+      @include media-breakpoint-down(lg) {
+        height: var(--footer-height);
+      }
     }
 
     &__label {
