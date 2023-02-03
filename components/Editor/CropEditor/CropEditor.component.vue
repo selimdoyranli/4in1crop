@@ -11,7 +11,7 @@
     :stencil-props="panel.stencilProps"
   )
 
-  UploadImageCard.col-12.col-lg-8.col-xl-6.col-xxl-5(v-if="!isReady")
+  UploadImageCard.col-12.col-lg-8.col-xl-6.col-xxl-6(v-if="!isReady")
 </template>
 
 <script>

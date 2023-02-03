@@ -6,8 +6,8 @@ header.header.app-header
     .app-header-action-item
       vs-tooltip(v-model="isVisibleReadyTooltip" bottom dark :class="[disabledReadyTooltipClass]")
         vs-button(flat active :loading="isBusy" :disabled="!original.file" @click="downloadAll")
-          AppIcon.me-1(name="charm:download")
-          | {{ $t('general.downloadAll') }}
+          AppIcon.me-0.me-lg-1(name="charm:download")
+          span.d-none.d-lg-inline-block {{ $t('general.downloadAll') }}
         template(#tooltip)
           span {{ $t('general.readyForDownload') }}
 
@@ -15,8 +15,8 @@ header.header.app-header
       DropdownMenu.language-dropdown-menu(withDropdownCloser direction="right" :overlay="false")
         template(#trigger)
           vs-button(color="dark" flat active)
-            AppIcon.me-1(name="prime:language")
-            | {{ $i18n.localeProperties.title }}
+            AppIcon.me-0.me-lg-1(name="prime:language")
+            span.d-none.d-lg-inline-block {{ $i18n.localeProperties.title }}
             AppIcon.ms-1(name="prime:caret-down")
         template(#body)
           li.language-dropdown-menu-item(dropdown-closer @click="$i18n.setLocale('en')")
@@ -25,9 +25,12 @@ header.header.app-header
             span.language-dropdown-menu-item__title Türkçe
 
     .app-header-action-item
-      vs-button(transparent dark active href="https://github.com/selimdoyranli/4in1crop" blank)
-        AppIcon.me-1(name="charm:github" color="var(--color-text-02)")
-        span.color-text-02 Created by @selimdoyranli
+      vs-button(transparent dark active @click="isOpenCreditsDialog = true")
+        AppIcon.me-0.me-lg-1(name="charm:github" color="var(--color-text-02)")
+        span.color-text-02.d-none.d-lg-inline-block Created by @selimdoyranli
+
+  // App Credits Dialog
+  AppCreditsDialog(:isOpen="isOpenCreditsDialog" @onClose="isOpenCreditsDialog = false")
 </template>
 
 <script>
@@ -35,6 +38,7 @@ import { defineComponent, useContext, useStore, ref, computed, watch } from '@nu
 import useEditor from '@/hooks/useEditor'
 import { AppLogo } from '@/components/Logo'
 import { AppIcon } from '@/components/Icon'
+import { AppCreditsDialog } from '@/components/Dialog'
 import DropdownMenu from 'v-dropdown-menu'
 import 'v-dropdown-menu/dist/v-dropdown-menu.css'
 
@@ -42,6 +46,7 @@ export default defineComponent({
   components: {
     AppLogo,
     AppIcon,
+    AppCreditsDialog,
     DropdownMenu
   },
   setup() {
@@ -72,11 +77,11 @@ export default defineComponent({
       () => isReady.value,
       value => {
         if (value) {
-          sleep(1000).then(() => {
+          sleep(2000).then(() => {
             isVisibleReadyTooltip.value = true
           })
 
-          sleep(3000).then(() => {
+          sleep(4000).then(() => {
             isVisibleReadyTooltip.value = false
           })
         }
@@ -116,6 +121,8 @@ export default defineComponent({
       })
     }
 
+    const isOpenCreditsDialog = ref(false)
+
     return {
       selectedLanguage,
       isReady,
@@ -123,7 +130,8 @@ export default defineComponent({
       isVisibleReadyTooltip,
       disabledReadyTooltipClass,
       original,
-      downloadAll
+      downloadAll,
+      isOpenCreditsDialog
     }
   }
 })

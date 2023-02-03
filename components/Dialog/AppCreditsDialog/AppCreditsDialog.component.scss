@@ -1,0 +1,17 @@
+.app-credits-dialog {
+  $vs-dialog: '.vs-dialog';
+
+  position: relative;
+
+  #{$vs-dialog} {
+    background-color: var(--color-ui-03);
+    box-shadow: var(--box-shadow-01);
+  }
+
+  &__body {
+    padding: calc(#{$spacer} * 4);
+    color: var(--color-text-02);
+    font-size: var(--font-size-text-20);
+    text-align: center;
+  }
+}

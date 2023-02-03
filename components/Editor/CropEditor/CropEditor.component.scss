@@ -5,10 +5,20 @@
   grid-template-columns: 50% 50%;
   height: calc(100vh - var(--header-height));
 
+  @include media-breakpoint-down(lg) {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
   &__panel {
     z-index: 1;
     border-bottom: 2px solid var(--color-border-01);
     border-left: 1px solid var(--color-border-01);
+
+    @include media-breakpoint-down(lg) {
+      min-height: 50vh;
+    }
 
     &--disabled {
       $crop-panel: '.crop-panel';
@@ -32,8 +42,14 @@
   }
 
   .upload-image-card {
+    position: absolute;
+    z-index: 2;
+
     @include center(true, true);
 
-    z-index: 2;
+    @include media-breakpoint-down(lg) {
+      position: fixed;
+      max-width: 90%;
+    }
   }
 }

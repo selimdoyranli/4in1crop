@@ -18,6 +18,7 @@
 
 <script>
 import { defineComponent, ref, watch } from '@nuxtjs/composition-api'
+import { cropTypeEnum } from '@/enums'
 import { AppIcon } from '@/components/Icon'
 
 export default defineComponent({
@@ -26,7 +27,7 @@ export default defineComponent({
   },
   setup(_, { emit }) {
     const selectedRatio = ref({
-      key: 'free',
+      key: cropTypeEnum.FREE,
       title: 'Freeform',
       ratio: null
     })
@@ -35,7 +36,7 @@ export default defineComponent({
       standard: {
         list: [
           {
-            key: 'free',
+            key: cropTypeEnum.FREE,
             title: 'Freeform',
             ratio: null
           },

@@ -28,5 +28,8 @@ export default {
     original: 'Original',
     cropped: 'Cropped',
     freeform: 'Freeform'
+  },
+  credits: {
+    description: 'Useful for Blog, Photo Blog, News sites and <br> Social Media posts.'
   }
 }

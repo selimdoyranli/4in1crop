@@ -28,5 +28,8 @@ export default {
     original: 'Orijinal',
     cropped: 'Kırpılmış',
     freeform: 'Serbest mod'
+  },
+  credits: {
+    description: 'Blog, Foto Blog, Haber siteleri ve <br> Sosyal Medya postları için kullanışlıdır.'
   }
 }
