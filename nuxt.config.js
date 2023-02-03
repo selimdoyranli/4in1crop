@@ -177,7 +177,7 @@ module.exports = {
       routes.push({
         name: 'index',
         path: '/',
-        component: resolve(__dirname, 'pages/Home/index.vue')
+        component: resolve(__dirname, 'pages/Home/-index.vue')
       })
     }
   },
