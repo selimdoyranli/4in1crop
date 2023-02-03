@@ -1,8 +1,6 @@
 .app-credits-dialog {
   $vs-dialog: '.vs-dialog';
 
-  position: relative;
-
   #{$vs-dialog} {
     background-color: var(--color-ui-03);
     box-shadow: var(--box-shadow-01);

@@ -25,12 +25,9 @@ header.header.app-header
             span.language-dropdown-menu-item__title Türkçe
 
     .app-header-action-item
-      vs-button(transparent dark active @click="isOpenCreditsDialog = true")
+      vs-button(transparent dark active @click="$emit('onClickCreditsDialog')")
         AppIcon.me-0.me-lg-1(name="charm:github" color="var(--color-text-02)")
         span.color-text-02.d-none.d-lg-inline-block Created by @selimdoyranli
-
-  // App Credits Dialog
-  AppCreditsDialog(:isOpen="isOpenCreditsDialog" @onClose="isOpenCreditsDialog = false")
 </template>
 
 <script>
@@ -38,7 +35,6 @@ import { defineComponent, useContext, useStore, ref, computed, watch } from '@nu
 import useEditor from '@/hooks/useEditor'
 import { AppLogo } from '@/components/Logo'
 import { AppIcon } from '@/components/Icon'
-import { AppCreditsDialog } from '@/components/Dialog'
 import DropdownMenu from 'v-dropdown-menu'
 import 'v-dropdown-menu/dist/v-dropdown-menu.css'
 
@@ -46,7 +42,6 @@ export default defineComponent({
   components: {
     AppLogo,
     AppIcon,
-    AppCreditsDialog,
     DropdownMenu
   },
   setup() {
@@ -121,8 +116,6 @@ export default defineComponent({
       })
     }
 
-    const isOpenCreditsDialog = ref(false)
-
     return {
       selectedLanguage,
       isReady,
@@ -130,8 +123,7 @@ export default defineComponent({
       isVisibleReadyTooltip,
       disabledReadyTooltipClass,
       original,
-      downloadAll,
-      isOpenCreditsDialog
+      downloadAll
     }
   }
 })
