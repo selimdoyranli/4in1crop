@@ -1,5 +1,6 @@
 <template lang="pug">
 .layout.default-layout
+  AppPreloader
   AppHeader
 
   // Main
@@ -11,10 +12,12 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
+import { AppPreloader } from '@/components/Preloader'
 import { AppHeader } from '@/components/Header'
 
 export default defineComponent({
   components: {
+    AppPreloader,
     AppHeader
   },
   setup() {}

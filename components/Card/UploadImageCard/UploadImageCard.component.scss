@@ -1,5 +1,5 @@
 .upload-image-card {
-  --height: 320px;
+  --height: 360px;
 
   position: relative;
   display: flex;
@@ -10,6 +10,7 @@
   text-align: center;
   background-color: var(--color-ui-02);
   border-radius: var(--border-radius-01);
+  box-shadow: var(--box-shadow-01);
 
   &-head {
     display: flex;
@@ -23,6 +24,11 @@
 
     &__title {
       margin: 0;
+      color: var(--color-text-01);
+
+      @include media-breakpoint-down(lg) {
+        font-size: var(--font-size-text-18);
+      }
     }
   }
 
@@ -30,13 +36,18 @@
     margin-bottom: $spacer * 4;
     font-size: var(--font-size-text-19);
     line-height: var(--font-size-text-13);
+
+    @include media-breakpoint-down(lg) {
+      font-size: var(--font-size-text-22);
+      line-height: var(--font-size-text-16);
+    }
   }
 
   &-action {
     margin-top: $spacer * 4;
 
     &__button {
-      padding: 0 $spacer * 2;
+      position: relative;
     }
   }
 }

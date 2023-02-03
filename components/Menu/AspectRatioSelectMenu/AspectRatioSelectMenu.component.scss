@@ -1,33 +1,56 @@
 .aspect-ratio-select-menu {
-  $aspect-ratio-select-menu__group: '.aspect-ratio-select-menu__group';
+  $aspect-ratio-select-menu: '.aspect-ratio-select-menu';
 
   position: relative;
   background-color: var(--color-ui-03);
 
-  #{$aspect-ratio-select-menu__group} {
+  &__group {
     position: relative;
+    margin-bottom: $spacer * 2;
 
     &--standard {
       display: grid;
       grid-row-gap: $spacer * 2;
       grid-column-gap: $spacer * 2;
       grid-template-columns: repeat(3, 1fr);
+
+      #{$aspect-ratio-select-menu} {
+        &-item {
+          aspect-ratio: 1/1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    }
+
+    &--social {
+      display: block;
+
+      #{$aspect-ratio-select-menu} {
+        &-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: $spacer * 2;
+          padding: calc(#{$spacer} * 4) calc(#{$spacer} * 4);
+
+          &__icon {
+            margin-right: $spacer * 2;
+          }
+        }
+      }
     }
   }
 
   &-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid var(--color-border-02);
-    border-radius: var(--border-radius-01);
+    border: 1px solid var(--color-border-03);
+    border-radius: calc(var(--border-radius-01) / 2);
     cursor: pointer;
-    aspect-ratio: 1/1;
 
     &:hover {
-      background-color: var(--color-ui-02);
+      background-color: var(--color-hover-01);
     }
 
     &--selected {

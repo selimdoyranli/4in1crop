@@ -1,0 +1,17 @@
+.app-toast {
+  overflow: hidden;
+  border: 0;
+  border-color: unset;
+  border-radius: var(--border-radius-01) !important;
+  box-shadow: none !important;
+
+  .iziToast-progressbar {
+    & > div {
+      height: 4px !important;
+    }
+  }
+
+  .iziToast-message {
+    color: var(--color-text-01) !important;
+  }
+}

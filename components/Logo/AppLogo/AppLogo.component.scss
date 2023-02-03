@@ -1,3 +1,18 @@
 .app-logo {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  text-decoration: none !important;
+
+  &__img {
+    width: auto;
+    height: 100%;
+  }
+
+  &__title {
+    margin-left: $spacer * 3;
+    color: var(--color-brand-03);
+    font-size: var(--font-size-text-21);
+  }
 }

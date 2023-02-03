@@ -1,0 +1,74 @@
+.app-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-overlay);
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-ui-01);
+
+  .app-logo {
+    &__img {
+      height: 48px;
+    }
+
+    &__title {
+      margin-left: $spacer * 4;
+      font-size: var(--font-size-text-15);
+    }
+  }
+
+  &__message {
+    position: fixed;
+    bottom: $spacer * 4;
+
+    @include center(true, false);
+  }
+
+  &__bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 12px;
+    overflow: hidden;
+    background: var(--color-active-ui);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      left: 0;
+      display: block;
+      background-color: hsla(10, 0%, 0%, 1);
+      background-image: radial-gradient(at 27% 49%, rgb(49, 193, 249) 0, transparent 50%),
+        radial-gradient(at 98% 92%, hsla(327, 0%, 0%, 1) 0, transparent 50%),
+        radial-gradient(at 74% 84%, rgb(17, 44, 246) 0, transparent 50%),
+        radial-gradient(at 78% 2%, hsla(234, 99%, 60%, 1) 0, transparent 50%),
+        radial-gradient(at 94% 58%, rgb(9, 137, 241) 0, transparent 50%), radial-gradient(at 62% 16%, rgb(139, 200, 228) 0, transparent 50%),
+        radial-gradient(at 25% 32%, rgb(155, 212, 243) 0, transparent 50%);
+      border-radius: 16px;
+      animation: loadingBar 1.5s cubic-bezier(0, 0, 0.3, 1) 1s infinite;
+      content: '';
+    }
+  }
+
+  @keyframes loadingBar {
+    0% {
+      right: 100%;
+      left: -25%;
+    }
+
+    50% {
+      right: 20%;
+      left: 20%;
+    }
+
+    100% {
+      right: -10%;
+      left: 100%;
+    }
+  }
+}

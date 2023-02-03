@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -15,15 +15,92 @@ module.exports = {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+        content: 'viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content: 'index,follow'
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: process.env.npm_package_description
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: process.env.npm_package_name
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: process.env.npm_package_description
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://4in1crop.com'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/meta/preview/og-main.png'
+      },
+      {
+        hid: 'twitter:card',
+        property: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:title',
+        property: 'twitter:title',
+        content: process.env.npm_package_name
+      },
+      {
+        hid: 'twitter:description',
+        property: 'twitter:description',
+        content: process.env.npm_package_description
+      },
+      {
+        hid: 'twitter:url',
+        property: 'twitter:url',
+        content: 'https://4in1crop.com'
+      },
+      {
+        hid: 'twitter:creator',
+        property: 'twitter:creator',
+        content: '@selimdoyranli'
+      },
+      {
+        hid: 'twitter:image',
+        property: 'twitter:image',
+        content: '/meta/preview/og-main.png'
+      },
+      {
+        hid: 'Publisher',
+        property: 'Publisher',
+        content: 'selimdoyranli'
+      },
+      {
+        hid: 'theme-color',
+        name: 'theme-color',
+        content: '#040404'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/meta/icon/favicon.ico' },
+      { rel: 'manifest', href: '/meta/manifest.json' }
+    ]
   },
 
   /*
@@ -127,13 +204,72 @@ module.exports = {
         // stylelint module options
         files: ['{assets/style,components,layouts,pages}/**/*.{css,sass,scss,less,stylus,vue}']
       }
+    ],
+    // https://www.npmjs.com/package/nuxt-font-loader
+    [
+      'nuxt-font-loader',
+      {
+        url: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap',
+        prefetch: true,
+        preconnect: true
+      }
     ]
   ],
 
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    // https://i18n.nuxtjs.org
+    [
+      '@nuxtjs/i18n',
+      {
+        lazy: true,
+        locales: [
+          {
+            name: 'English',
+            title: 'English',
+            code: 'en',
+            iso: 'en-US',
+            file: 'en.js'
+          },
+          {
+            name: 'Turkish',
+            title: 'Türkçe',
+            code: 'tr',
+            iso: 'tr-TR',
+            file: 'tr.js'
+          }
+        ],
+        langDir: 'locales/',
+        defaultLocale: 'en',
+        strategy: 'no_prefix',
+        detectBrowserLanguage: false,
+        parsePages: false
+      }
+    ],
+    // https://www.npmjs.com/package/nuxt-izitoast
+    [
+      'nuxt-izitoast',
+      {
+        class: 'app-toast app-toast--default',
+        close: false,
+        color: '#171717',
+        pauseOnHover: true,
+        layout: 1,
+        closeOnEscape: true,
+        theme: 'dark',
+        timeout: 3000,
+        progressBar: false,
+        transitionIn: 'fadeInUp',
+        transitionOut: 'fadeOut',
+        transitionInMobile: 'fadeInUp',
+        transitionOutMobile: 'fadeOutDown',
+        position: 'bottomCenter',
+        progressBarColor: '#222'
+      }
+    ]
+  ],
 
   /*
    ** Build configuration
@@ -150,6 +286,6 @@ module.exports = {
   server: {
     host: '0.0.0.0', // default: localhost,
     timing: false,
-    port: 8080
+    port: 3000
   }
 }

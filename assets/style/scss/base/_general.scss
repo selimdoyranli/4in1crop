@@ -1,25 +1,4 @@
-// General
 @charset "UTF-8";
-
-/*
-
-UI Developer
-
---------
-
-Developer : Selim Doyranlı
-
-Developer Website : selimdoyranli.com
-
-Github : @selimdoyranli
-___________
-
-
-TEAM : RadKod ✪
-
-TEAM WEBSITE : www.RadKod.com
-
-*/
 
 * {
   box-sizing: border-box;
@@ -47,5 +26,6 @@ body {
   overflow-x: clip;
   color: var(--color-text-02);
   background-color: var(--color-ui-01);
+
   @include rubik-regular;
 }

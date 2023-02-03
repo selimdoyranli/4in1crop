@@ -14,8 +14,7 @@
 /*
  * Vendor
  */
-
-@import '../css/vendor/animate.min.css';
+// --
 
 /*
  * Bootstrap Vendor (5.2.3)
@@ -30,13 +29,14 @@
 @import 'bootstrap/scss/containers';
 
 // Base
-@import 'base/font';
 @import 'base/general';
 
 // Utils
 @import 'utils/state';
+@import 'utils/color';
 
 // Shared (elements with common/shared style classes)
 @import 'shared/page';
 @import 'shared/layout';
 @import 'shared/transition';
+@import 'shared/app-toast';

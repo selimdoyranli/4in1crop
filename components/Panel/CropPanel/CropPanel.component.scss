@@ -56,7 +56,8 @@
 
   &-footer {
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
     width: 100%;
     height: var(--footer-height);
@@ -64,6 +65,18 @@
     font-size: var(--font-size-text-23);
     line-height: var(--font-size-text-20);
     border-top: 1px solid var(--color-border-01);
+
+    &__info {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      @include media-breakpoint-down(lg) {
+        height: var(--footer-height);
+      }
+    }
 
     &__label {
       margin-right: $spacer * 2;
@@ -106,12 +119,12 @@
       }
 
       &__container {
-        min-width: 264px;
-        margin-bottom: $spacer;
+        min-width: 286px;
+        margin-bottom: calc(var(--footer-height) / 2);
         padding: $spacer * 4;
         background-color: var(--color-ui-03);
         border: 0;
-        border-radius: calc(var(--border-radius-01) / 2);
+        border-radius: var(--border-radius-01);
       }
     }
   }

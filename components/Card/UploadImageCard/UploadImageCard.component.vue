@@ -2,28 +2,21 @@
 .upload-image-card(ref="rootRef")
   .upload-image-card-head
     AppIcon.upload-image-card-head__icon(name="heroicons-solid:photo" :width="32" :height="32")
-    h1.upload-image-card-head__title KIRPMAYA BAŞLA
+    h1.upload-image-card-head__title {{ $t('uploader.title') }}
 
-  p.upload-image-card__description Kırpmak istediğin bir fotoğrafı seç, <br>
-    | 16:9, 9:16, 1:1 ve free oranlar için tek ekranda hızlıca kırp ve indir.
+  p.upload-image-card__description(v-html="$t('uploader.description')")
 
   .upload-image-card-action
-    vs-button.upload-image-card-action__button(
-      size="xl"
-      primary
-      flat
-      active
-      :loading="card.isBusy"
-      @click.native="handleClickUploadButton"
-    )
-      | Fotoğraf Seç
+    vs-button.upload-image-card-action__button(size="xl" primary active flat :loading="isBusy" @click.native="handleClickUploadButton")
+      | {{ $t('uploader.choosePhoto') }}
 
   // File Input
-  input#imageFile(ref="imageFileRef" type="file" v-show="false" @change="handleChangeFile")
+  input#imageFile(ref="imageFileRef" type="file" v-show="false" :accept="inputAcceptedFileExtensions" @change="handleChangeFile")
 </template>
 
 <script>
-import { defineComponent, useStore, ref, reactive } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, useStore, ref, computed } from '@nuxtjs/composition-api'
+import useEditor from '@/hooks/useEditor'
 import { AppIcon } from '@/components/Icon'
 
 export default defineComponent({
@@ -31,13 +24,20 @@ export default defineComponent({
     AppIcon
   },
   setup(_, { emit }) {
+    const context = useContext()
     const store = useStore()
+    const { sleep, acceptedFileExtensions, getFileExtension } = useEditor()
 
     const rootRef = ref(null)
     const imageFileRef = ref(null)
 
-    const card = reactive({
-      isBusy: false
+    const isBusy = computed(() => store.getters['editor/isBusy'])
+    const inputAcceptedFileExtensions = computed(() => {
+      return acceptedFileExtensions.value
+        .map(extension => {
+          return `image/${extension}`
+        })
+        .join(',')
     })
 
     const handleClickUploadButton = () => {
@@ -45,19 +45,32 @@ export default defineComponent({
     }
 
     const handleChangeFile = () => {
-      card.isBusy = true
+      store.commit('editor/SET_IS_BUSY', true)
 
-      setTimeout(() => {
-        emit('onChooseFile', { fileInput: imageFileRef.value })
-        card.isBusy = false
-        store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
-      }, 1000) // Create virtual delay effect
+      const fileExtension = getFileExtension(imageFileRef.value.files[0].name).toLowerCase()
+
+      if (acceptedFileExtensions.value.includes(fileExtension)) {
+        sleep(1000).then(() => {
+          store.commit('editor/SET_IS_READY', true)
+          store.commit('editor/SET_IS_BUSY', false)
+          store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
+        })
+      } else {
+        store.commit('editor/SET_IS_BUSY', false)
+        imageFileRef.value.value = null
+
+        context.$izitoast.error({
+          message: 'Unsupported file extension'
+        })
+      }
     }
 
     return {
       rootRef,
       imageFileRef,
-      card,
+      acceptedFileExtensions,
+      inputAcceptedFileExtensions,
+      isBusy,
       handleClickUploadButton,
       handleChangeFile
     }

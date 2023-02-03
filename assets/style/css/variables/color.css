@@ -1,35 +1,31 @@
 :root {
   /* Brand */
-  --color-brand-01: #012353;
-  --color-brand-02: #454545;
+  --color-brand-01: #1a5cff;
+  --color-brand-02: #040404;
   --color-brand-03: #eee;
 
   /* Block Elements */
   --color-ui-01: #040404;
   --color-ui-02: #090909;
   --color-ui-03: #171717;
-  --color-ui-04: #230046;
-  --color-ui-05: #320064;
   --color-field-01: #282828;
   --color-skeleton-01: #141414;
   --color-skeleton-02: #282828;
 
   /* Borders */
   --color-border-01: #090909;
-  --color-border-02: #202020;
+  --color-border-02: #171717;
+  --color-border-03: #202020;
 
   /* Typographic */
   --color-text-01: #999;
   --color-text-02: #666;
-  --color-link-01: #320064;
+  --color-link-01: #1a5cff;
   --color-icon-01: #999;
 
   /* Interactive */
-  --color-hover-01: #fafafa;
-  --color-hover-02: #fff;
-  --color-active-01: #ededed;
-  --color-selected-01: #007194;
-  --color-disabled-01: #c4c4c4;
+  --color-hover-01: #202020;
+  --color-hover-02: #090909;
 
   /* Denotative */
   --color-danger-01: #fd0000;
@@ -39,5 +35,4 @@
 
   /* Overlays */
   --color-overlay-01: rgba(0, 0, 0, 0.1);
-  --color-overlay-02: rgba(255, 255, 255, 0.7);
 }
