@@ -47,7 +47,7 @@ export default defineComponent({
   setup() {
     const context = useContext()
     const store = useStore()
-    const { sleep } = useEditor()
+    const { sleep, getFileExtension } = useEditor()
 
     const JSZip = require('jszip')
     const zip = new JSZip()
@@ -103,11 +103,11 @@ export default defineComponent({
         store.commit('editor/SET_IS_BUSY', false)
         const croppedList = [horizontalCropped.value, verticalCropped.value, squareCropped.value, freeCropped.value]
 
-        zip.file(`image-${original.value.key}.jpg`, original.value.file)
+        zip.file(`image-${original.value.key}.${getFileExtension(original.value.file.name)}`, original.value.file)
         croppedList.forEach(cropped => {
           URL.createObjectURL(cropped.file)
 
-          zip.file(`image-${cropped.key}.jpg`, cropped.file)
+          zip.file(`image-${cropped.key}.${getFileExtension(original.value.file.name)}`, cropped.file)
         })
 
         zip.generateAsync({ type: 'blob' }).then(content => {
