@@ -1,7 +1,7 @@
 import { ref } from '@nuxtjs/composition-api'
 
 export default () => {
-  const acceptedFileExtensions = ref(['jpg', 'jpeg', 'jfif', 'png', 'webp'])
+  const acceptedFileExtensions = ref(['jpg', 'jpeg', 'jfif', 'png', 'bmp'])
 
   /**
    * @function sleep Sleep for action
