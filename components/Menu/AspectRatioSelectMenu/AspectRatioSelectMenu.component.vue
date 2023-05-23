@@ -4,7 +4,7 @@
   .aspect-ratio-select-menu__group.aspect-ratio-select-menu__group--standard
     .aspect-ratio-select-menu-item(
       v-for="ratio in aspectRatio.standard.list"
-      :key="ratio"
+      :key="ratio.key"
       :class="[getSelectedClass(ratio)]"
       @click="selectRatio(ratio)"
     )
@@ -14,7 +14,7 @@
   .aspect-ratio-select-menu__group.aspect-ratio-select-menu__group--social
     .aspect-ratio-select-menu-item(
       v-for="ratio in aspectRatio.social.list"
-      :key="ratio"
+      :key="ratio.key"
       :class="[getSelectedClass(ratio)]"
       @click="selectRatio(ratio)"
     )

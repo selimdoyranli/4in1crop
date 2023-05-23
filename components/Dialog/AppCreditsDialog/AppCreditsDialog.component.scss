@@ -4,12 +4,20 @@
   #{$vs-dialog} {
     background-color: var(--color-ui-03);
     box-shadow: var(--box-shadow-01);
-  }
 
-  &__body {
-    padding: calc(#{$spacer} * 4);
-    color: var(--color-text-02);
-    font-size: var(--font-size-text-20);
-    text-align: center;
+    &__content {
+      padding: calc(#{$spacer} * 8);
+      color: var(--color-text-02);
+      font-size: var(--font-size-text-20);
+      text-align: center;
+    }
+
+    &__footer {
+      display: flex;
+      flex-direction: column;
+      max-width: 50%;
+      margin: 0 auto;
+      padding-bottom: calc(#{$spacer} * 4);
+    }
   }
 }
