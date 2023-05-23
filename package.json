@@ -1,6 +1,6 @@
 {
   "name": "4in1crop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Quickly crop a photo for multiple ratios on the same screen",
   "private": true,
   "keywords": [
