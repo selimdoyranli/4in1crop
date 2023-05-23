@@ -1,4 +1,7 @@
 
+[![changelog][changelog-src]][changelog-href]
+[![License][license-src]][license-href]
+
 <br>
 <p align="center">
 <a href="https://4in1crop.com" target="_blank">
@@ -33,11 +36,11 @@ Quickly crop a photo for multiple ratios on the same screen 🖼️✂️
 </div>
 
 ## Features
-- 🛠 ⚡️ Easy and fast.
-- 🧑‍💻 User friendly.
-- 🤹 🎨 Interactive.
-- 💸 🚫 Fully free. No ads, no premium bullshit.
-- 💾 🔒 Safe. Doesn't storage your photo.
+- 🛠 ⚡️ Easy and fast
+- 🧑‍💻 User friendly
+- 🤹 🎨 Interactive
+- 💸 🚫 Fully free. No ads, no premium bullshit
+- 💾 🔒 Safe. Doesn't storage your photo
 
 ## Getting Started
 
@@ -46,10 +49,6 @@ Quickly crop a photo for multiple ratios on the same screen 🖼️✂️
 [4in1crop.com](https://4in1crop.com)
 
 ### Init Project Locally
-
-Install [Node.js >=14.18.0](https://nodejs.org/) and run the following command:
-
-&nbsp;
 
 #### Installation
 
@@ -83,21 +82,42 @@ $ yarn start
 #### Linter
 
 ```bash
-# run eslint for js & vue files
-$ yarn lint:eslint
+# run eslint
+yarn lint:eslint
 
-# run eslint fix for js & vue files
-$ yarn lint:eslint:fix
+# run eslint fix
+yarn lint:eslint:fix
 
-# run stylelint for vue & style files
-$ yarn lint:stylelint
+# run stylelint
+yarn lint:stylelint
 
-# run stylelint fix for vue & style files
-$ yarn lint:stylelint:fix
+# run stylelint fix
+yarn lint:stylelint:fix
 
 # run prettier
-$ yarn prettier
+yarn prettier
+```
 
+#### Git
+Using [Conventional Commits](https://www.conventionalcommits.org), commitizen, commitizen cli
+
+```bash
+# add files
+git add .
+
+# generate commit message
+yarn commit # or yarn cz
+
+# push
+git push
+```
+
+#### Release & Changelog
+Using [changelogen](https://github.com/unjs/changelogen) for release & changelog management, arguments are the same as changelogen
+
+```bash
+# run changelogen
+yarn changelog
 ```
 
 ---
@@ -117,6 +137,7 @@ $ yarn prettier
 - Prettier
 - Commitlint
 - Commitizen
+- Changelogen
 
 ## Sponsorship
 
@@ -131,3 +152,11 @@ You can sponsor me for the continuity of my projects:
 ## License
 
 MIT License © 2023 [selimdoyranli](https://github.com/selimdoyranli)
+
+
+<!-- Badges -->
+[changelog-src]: https://img.shields.io/static/v1?label=%F0%9F%93%96&message=Release%20Notes%20|%20CHANGELOG&color=blue
+[changelog-href]: ./CHANGELOG.md
+
+[license-src]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-href]: ./LICENSE
