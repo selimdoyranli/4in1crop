@@ -66,6 +66,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "@prettier/plugin-pug": "^2.4.1",
+    "changelogen": "^0.5.3",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.41.0",
