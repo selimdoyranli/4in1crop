@@ -59,7 +59,7 @@ export default defineComponent({
     const handleClose = () => {
       dialog.isOpen = false
 
-      emit('onClose')
+      emit('on-close')
     }
 
     return {

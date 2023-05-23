@@ -18,13 +18,13 @@
 
   .crop-panel-footer
     .crop-panel-footer__actions
-      DropdownMenu.crop-panel-aspect-ratio-select-dropdown(v-if="type === cropTypeEnum.FREE" withDropdownCloser dropup :overlay="false")
+      DropdownMenu.crop-panel-aspect-ratio-select-dropdown(v-if="type === cropTypeEnum.FREE" with-dropdown-closer dropup :overlay="false")
         template(#trigger)
           button
             span {{ $t('editor.chooseCustomAspectRatio') }}
             AppIcon(name="prime:caret-up" :width="12" :height="12")
         template(#body)
-          AspectRatioSelectMenu(dropdown-closer @onSelect="handleOnSelectFreeFormRatio")
+          AspectRatioSelectMenu(dropdown-closer @on-select="handleOnSelectFreeFormRatio")
 
     .crop-panel-footer__info
       span.crop-panel-footer__label

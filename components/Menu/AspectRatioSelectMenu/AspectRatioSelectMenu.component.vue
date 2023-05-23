@@ -4,6 +4,7 @@
   .aspect-ratio-select-menu__group.aspect-ratio-select-menu__group--standard
     .aspect-ratio-select-menu-item(
       v-for="ratio in aspectRatio.standard.list"
+      :key="ratio"
       :class="[getSelectedClass(ratio)]"
       @click="selectRatio(ratio)"
     )
@@ -11,7 +12,12 @@
 
   // Social List
   .aspect-ratio-select-menu__group.aspect-ratio-select-menu__group--social
-    .aspect-ratio-select-menu-item(v-for="ratio in aspectRatio.social.list" :class="[getSelectedClass(ratio)]" @click="selectRatio(ratio)")
+    .aspect-ratio-select-menu-item(
+      v-for="ratio in aspectRatio.social.list"
+      :key="ratio"
+      :class="[getSelectedClass(ratio)]"
+      @click="selectRatio(ratio)"
+    )
       AppIcon.aspect-ratio-select-menu-item__icon(v-if="ratio.icon" :name="ratio.icon")
       span.aspect-ratio-select-menu-item__title {{ ratio.title }}
 </template>
@@ -126,7 +132,7 @@ export default defineComponent({
       () => selectedRatio.value,
       value => {
         if (value) {
-          emit('onSelect', selectedRatio.value)
+          emit('on-select', selectedRatio.value)
         }
       }
     )

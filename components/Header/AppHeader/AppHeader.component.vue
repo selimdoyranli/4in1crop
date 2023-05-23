@@ -12,7 +12,7 @@ header.header.app-header
           span {{ $t('general.readyForDownload') }}
 
     .app-header-action-item
-      DropdownMenu.language-dropdown-menu(withDropdownCloser direction="right" :overlay="false")
+      DropdownMenu.language-dropdown-menu(with-dropdown-closer direction="right" :overlay="false")
         template(#trigger)
           vs-button(color="dark" flat active)
             AppIcon.me-0.me-lg-1(name="prime:language")
@@ -25,7 +25,7 @@ header.header.app-header
             span.language-dropdown-menu-item__title Türkçe
 
     .app-header-action-item
-      vs-button(transparent dark active @click="$emit('onClickCreditsDialog')")
+      vs-button(transparent dark active @click="$emit('on-click-credits-dialog')")
         AppIcon.me-0.me-lg-1(name="charm:github" color="var(--color-text-02)")
         span.color-text-02.d-none.d-lg-inline-block Created by @selimdoyranli
 </template>

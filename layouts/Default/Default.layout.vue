@@ -1,7 +1,7 @@
 <template lang="pug">
 .layout.default-layout
   AppPreloader
-  AppHeader(@onClickCreditsDialog="isOpenCreditsDialog = true")
+  AppHeader(@on-click-credits-dialog="isOpenCreditsDialog = true")
 
   // Main
   .layout__inner
@@ -10,7 +10,7 @@
         nuxt
 
   // App Credits Dialog
-  AppCreditsDialog(:isOpen="isOpenCreditsDialog" @onClose="isOpenCreditsDialog = false")
+  AppCreditsDialog(:is-open="isOpenCreditsDialog" @on-close="isOpenCreditsDialog = false")
 </template>
 
 <script>
