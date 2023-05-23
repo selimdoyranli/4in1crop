@@ -1,4 +1,8 @@
 export default {
+  droppedFiles(state) {
+    return state.droppedFiles
+  },
+
   isReady(state) {
     return state.isReady
   },

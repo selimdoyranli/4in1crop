@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { defineComponent, useContext, useStore, ref, computed } from '@nuxtjs/composition-api'
+import { defineComponent, useContext, useStore, ref, computed, watch } from '@nuxtjs/composition-api'
 import useEditor from '@/hooks/useEditor'
 import { AppIcon } from '@/components/Icon'
 
@@ -26,6 +26,7 @@ export default defineComponent({
   setup(_, { emit }) {
     const context = useContext()
     const store = useStore()
+
     const { sleep, acceptedFileExtensions, getFileExtension } = useEditor()
 
     const rootRef = ref(null)
@@ -44,16 +45,31 @@ export default defineComponent({
       imageFileRef.value.click()
     }
 
+    const droppedFiles = computed(() => store.getters['editor/droppedFiles'])
+
+    watch(
+      () => droppedFiles.value,
+      value => {
+        const file = value[0]
+        setFile(file)
+      }
+    )
+
     const handleChangeFile = () => {
+      const file = imageFileRef.value.files[0]
+      setFile(file)
+    }
+
+    const setFile = file => {
       store.commit('editor/SET_IS_BUSY', true)
 
-      const fileExtension = getFileExtension(imageFileRef.value.files[0].name).toLowerCase()
+      const fileExtension = getFileExtension(file.name).toLowerCase()
 
       if (acceptedFileExtensions.value.includes(fileExtension)) {
         sleep(1000).then(() => {
           store.commit('editor/SET_IS_READY', true)
           store.commit('editor/SET_IS_BUSY', false)
-          store.commit('editor/SET_ORIGINAL', { file: imageFileRef.value.files[0] })
+          store.commit('editor/SET_ORIGINAL', { file: file })
         })
       } else {
         store.commit('editor/SET_IS_BUSY', false)

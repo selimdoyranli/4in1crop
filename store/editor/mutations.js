@@ -1,6 +1,10 @@
 import { cropTypeEnum } from '@/enums'
 
 export default {
+  SET_DROPPED_FILES(state, files) {
+    state.droppedFiles = files
+  },
+
   SET_IS_READY(state, isReady) {
     state.isReady = isReady
   },

@@ -1,6 +1,7 @@
 import { cropTypeEnum } from '@/enums'
 
 export default () => ({
+  droppedFiles: [],
   isReady: false,
   isBusy: false,
   original: {

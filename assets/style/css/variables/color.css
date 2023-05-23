@@ -16,6 +16,7 @@
   --color-border-01: #090909;
   --color-border-02: #171717;
   --color-border-03: #202020;
+  --color-border-04: #eee;
 
   /* Typographic */
   --color-text-01: #999;
@@ -35,4 +36,5 @@
 
   /* Overlays */
   --color-overlay-01: rgba(0, 0, 0, 0.1);
+  --color-overlay-02: rgba(0, 0, 0, 0.8);
 }

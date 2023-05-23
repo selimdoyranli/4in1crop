@@ -21,7 +21,8 @@ export default {
   uploader: {
     title: 'START CROPPING',
     description: `Quickly crop a photo for multiple ratios on the same screen. <br> Supported ratios are; 16:9, 9:16, 1:1 and free-ratio.`,
-    choosePhoto: 'Choose a photo'
+    choosePhoto: 'Choose a photo',
+    drop: 'Drop here'
   },
   editor: {
     chooseCustomAspectRatio: 'Choose custom ratio',

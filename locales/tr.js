@@ -21,7 +21,8 @@ export default {
   uploader: {
     title: 'KIRPMAYA BAŞLA',
     description: `Birden fazla en boy oranı için tek ekranda hızlıca fotoğraf kırp. <br> 16:9, 9:16, 1:1 ve serbest oran desteklenir.`,
-    choosePhoto: 'Fotoğraf Seç'
+    choosePhoto: 'Fotoğraf Seç',
+    drop: 'Görseli buraya bırak'
   },
   editor: {
     chooseCustomAspectRatio: 'Özel oran seç',
