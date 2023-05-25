@@ -213,6 +213,18 @@ module.exports = {
         prefetch: true,
         preconnect: true
       }
+    ],
+    // https://pwa.nuxtjs.org
+    [
+      '@nuxtjs/pwa',
+      {
+        icon: {
+          source: 'static/icon.png'
+        },
+        workbox: {
+          enabled: true
+        }
+      }
     ]
   ],
 
