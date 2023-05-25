@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## v1.2.0
+
+[compare changes](https://github.com/selimdoyranli/4in1crop/compare/v1.1.0...v1.2.0)
+
+
+### 🚀 Enhancements
+
+  - Add pwa ([f08b817](https://github.com/selimdoyranli/4in1crop/commit/f08b817))
+
+### 🤖 CI
+
+  - Vercel deployments ([3b451c0](https://github.com/selimdoyranli/4in1crop/commit/3b451c0))
+
+### ❤️  Contributors
+
+- Selimdoyranli ([@selimdoyranli](http://github.com/selimdoyranli))
+
 ## v1.1.0
 
 [compare changes](https://github.com/selimdoyranli/4in1crop/compare/v1.0.0...v1.1.0)
