@@ -30,6 +30,23 @@ export default {
     cropped: 'Kırpılmış',
     freeform: 'Serbest mod'
   },
+  cropType: {
+    original: {
+      title: 'Orijinal'
+    },
+    horizontal: {
+      title: 'Yatay'
+    },
+    vertical: {
+      title: 'Dikey'
+    },
+    square: {
+      title: 'Kare'
+    },
+    free: {
+      title: 'Serbest mod'
+    }
+  },
   credits: {
     description: 'Blog, foto blog, haber siteleri ve sosyal medya postları için kullanışlıdır.'
   }

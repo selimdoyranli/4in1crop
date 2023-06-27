@@ -37,10 +37,15 @@
       template(v-if="panel.cropper")
         span.crop-panel-footer__label {{ $t('editor.original') }}: {{ panel.cropper.image.width }}x{{ panel.cropper.image.height }}
         span.crop-panel-footer__label {{ $t('editor.cropped') }}: {{ panel.cropper.coordinates.width }}x{{ panel.cropper.coordinates.height }}
+        vs-tooltip(bottom dark not-arrow)
+          vs-button(flat active dark size="mini" :loading="panel.isBusy" :disabled="panel.isBusy" @click="download({ type })")
+            AppIcon(name="charm:download")
+          template(#tooltip)
+            span {{ $t('general.download') }} ({{ $t(`cropType.${type}.title`) }})
 </template>
 
 <script>
-import { defineComponent, useStore, ref, reactive, computed, onMounted, onUnmounted } from '@nuxtjs/composition-api'
+import { defineComponent, useStore, ref, reactive, computed, onMounted } from '@nuxtjs/composition-api'
 import { cropTypeEnum } from '@/enums'
 import useEditor from '@/hooks/useEditor'
 import { Cropper } from 'vue-advanced-cropper'
@@ -81,8 +86,10 @@ export default defineComponent({
     }
   },
   setup(props) {
+    const FileSaver = require('file-saver')
+
     const store = useStore()
-    const { sleep } = useEditor()
+    const { sleep, getFileExtension } = useEditor()
 
     const cropperRef = ref(null)
 
@@ -90,6 +97,7 @@ export default defineComponent({
     const original = computed(() => store.getters['editor/original'])
 
     const panel = reactive({
+      isBusy: false,
       cropper: null
     })
 
@@ -136,6 +144,7 @@ export default defineComponent({
     const handleOnChangeCropper = ({ coordinates, image, visibleArea, canvas }) => {
       panel.cropper = { coordinates, image, visibleArea, canvas }
 
+      panel.isBusy = true
       store.commit('editor/SET_IS_BUSY', true)
 
       canvas.toBlob(blob => {
@@ -143,12 +152,27 @@ export default defineComponent({
       }, original.value.file.type)
 
       sleep(1000).then(() => {
+        panel.isBusy = false
         store.commit('editor/SET_IS_BUSY', false)
       })
     }
 
     const zoom = value => {
       cropperRef.value.zoom(value)
+    }
+
+    const cropped = computed(() => store.getters['editor/cropped'])
+
+    const download = ({ type }) => {
+      store.commit('editor/SET_IS_BUSY', true)
+      panel.isBusy = true
+
+      FileSaver.saveAs(cropped.value[type].file, `image-${cropped.value[type].key}.${getFileExtension(original.value.file.name)}`)
+
+      sleep(1000).then(() => {
+        store.commit('editor/SET_IS_BUSY', false)
+        panel.isBusy = false
+      })
     }
 
     onMounted(() => {
@@ -167,7 +191,8 @@ export default defineComponent({
       handleOnSelectFreeFormRatio,
       getFreeStencilProps,
       handleOnReadyCropper,
-      handleOnChangeCropper
+      handleOnChangeCropper,
+      download
     }
   }
 })

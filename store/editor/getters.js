@@ -15,6 +15,10 @@ export default {
     return state.original
   },
 
+  cropped(state) {
+    return state.cropped
+  },
+
   horizontalCropped(state) {
     return state.cropped.horizontal
   },

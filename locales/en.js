@@ -30,6 +30,23 @@ export default {
     cropped: 'Cropped',
     freeform: 'Freeform'
   },
+  cropType: {
+    original: {
+      title: 'Original'
+    },
+    horizontal: {
+      title: 'Horizontal'
+    },
+    vertical: {
+      title: 'Vertical'
+    },
+    square: {
+      title: 'Square'
+    },
+    free: {
+      title: 'Free ratio'
+    }
+  },
   credits: {
     description: 'Useful for blog, photo blog, news websites and social media posts.'
   }
