@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## v1.3.0
+
+[compare changes](https://github.com/selimdoyranli/4in1crop/compare/v1.2.0...v1.3.0)
+
+
+### 🚀 Enhancements
+
+  - Single download support for each crop type ([2698f2d](https://github.com/selimdoyranli/4in1crop/commit/2698f2d))
+
+### ❤️  Contributors
+
+- Selimdoyranli ([@selimdoyranli](http://github.com/selimdoyranli))
+
 ## v1.2.0
 
 [compare changes](https://github.com/selimdoyranli/4in1crop/compare/v1.1.0...v1.2.0)
